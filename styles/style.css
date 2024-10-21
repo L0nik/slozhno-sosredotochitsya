@@ -1,5 +1,244 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  font-family: 'IBM Plex Mono', sans-serif;
+  font-size: 18px;
+  line-height: 23.4px;
+  font-style: normal;
+  font-weight: 400;
+  padding: 10px;
+  padding-block-start: 0;
+  background-image: var(--background-image);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
+
+.rec {
+  position: absolute;
+  top: 10px;
+  right: 28px;
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 25px;
+  color: var(--accent-color);
+}
+
+.rec::after {
+  position: absolute;
+  top: 8px;
+  left: 44px;
+  content: "";
+  inline-size: 9px;
+  block-size: 9px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  box-shadow: 0px 0px 4px 2px var(--accent-color);
+}
+
+.header {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr minmax(auto, max-content) 1fr;
+  margin-block-end: 40px;
+  min-block-size: 100vb;
+}
+
+.header::before {
+  position: absolute;
+  top: 10px;
+  left: calc(100% - 24px);
+  content: "";
+  inline-size: 25px;
+  block-size: 25px;
+  border-top: 1px solid var(--accent-color);
+  border-right: 1px solid var(--accent-color);
+}
+
+.header::after {
+  position: absolute;
+  bottom: 10px;
+  content: "";
+  inline-size: 25px;
+  block-size: 25px;
+  border-bottom: 1px solid var(--accent-color);
+  border-left: 1px solid var(--accent-color);
+}
+
+.header__theme-menu {
+  justify-self: right;
+  align-self: center;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  padding-inline: 13px;
+  padding-block: 1.5px;
+  border: none;
+  background-color: transparent;
+  font-size: 18px;
+  line-height: 18px;
+  color: var(--accent-color);
+  text-transform: lowercase;
+  border-bottom: 1px solid transparent;
+}
+
+.header__theme-menu-button:hover {
+  outline: 1px solid rgba(255, 0, 112, 0.4);
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  outline: none;
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.header__theme-menu-button_active {
+  outline: 1px solid var(--accent-color);
+  pointer-events: none;
+}
+
+.header__title {
+  font-weight: 700;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 82.5%;
+  text-shadow: 4px 4px 0px var(--accent-color);
+  color: #DB00FF;
+  align-self: center;
+}
+
+.header__description {
+  justify-self: right;
+  width: 100%;
+  font-weight: 700;
+  align-self: center;
+}
+
+.title-decor {
+  background-color: var(--accent-color);
+  color: #000028;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  color: var(--text-color);
+  margin-block-end: 50px;
+}
+
+.section__title {
+  color: var(--accent-color);
+  font-size: inherit;
+}
+
+.section__article-title {
+  font-size: inherit;
+  margin-block-end: 10px;
+}
+
+.section__article-title_extra-margin {
+  margin-block-end: 20px;
+}
+
+.hint-title {
+  margin-block-end: 10px;
+  font-weight: normal;
+}
+
+@media (width >= 768px) {
+
+  .page{
+    padding: 20px;
+    padding-block-start: 0;
+  }
+
+  .rec {
+    top: 20px;
+  }
+
+  .header {
+    margin-block-end: 60px;
+  }
+
+  .header::before {
+    top: 20px;
+  }
+
+  .header::after {
+    bottom: 20px;
+  }
+
+  .header__title {
+    position: relative;
+    left: -20px;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header__description {
+    width: 50%;
+  }
+
+  .section {
+    margin-block-end: 80px;
+  }
+
+  .section-1 {
+    grid-template-columns: 1fr 2fr;
+  }
+  
+  .section-1 > .section__article {
+    grid-column: 2 / span 1;
+  }
+
+  .section-2 {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .section-2 > .section__title {
+    grid-column: 1 / span 1;
+  }
+
+  .section-2 > .section__article {
+    grid-column: 1 / span 2;
+  }
+
+}
+
+@media (width >= 1024px) {
+
+  .header__theme-menu {
+    margin-block-start: 20px;
+    justify-self: center;
+    align-self: start;
+  }
+
+  .header__theme-menu-list {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .section-2 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .section-2 > .section__title {
+    grid-column: 1 / span 1;
+  }
+
+  .section-2 > .section__article {
+    grid-column: initial;
+    grid-row-start: 2;
+  }
+
+}
+
+
